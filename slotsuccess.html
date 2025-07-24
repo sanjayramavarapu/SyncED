@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Booking Confirmation</title>
+
+   <!-- Font Awesome CDN Link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Custom CSS File Link -->
+   <link rel="stylesheet" href="css/style.css">
+
+   <style>
+      body {
+         font-family: 'Arial', sans-serif;
+         background: linear-gradient(to right, #6a1b9a, #4a148c);
+         color: white;
+         margin: 0;
+         padding: 0;
+         text-align: center;
+      }
+
+      .confirmation-message {
+         background-color: white;
+         color: #333;
+         padding: 3rem;
+         margin: 2rem auto;
+         border-radius: 8px;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+         width: 40%;
+      }
+
+      .confirmation-message h2 {
+         font-size: 2.5rem;
+         margin-bottom: 1.5rem;
+         color: #6a1b9a;
+      }
+
+      .confirmation-message p {
+         font-size: 1.5rem;
+      }
+
+      .btn {
+         background-color: #6a1b9a;
+         color: white;
+         padding: 1rem 2rem;
+         font-size: 1.2rem;
+         border-radius: 6px;
+         text-align: center;
+         text-decoration: none;
+         cursor: pointer;
+         display: inline-block;
+         margin-top: 2rem;
+      }
+
+      .btn:hover {
+         background-color: #4a148c;
+      }
+   </style>
+</head>
+<body>
+
+<div class="confirmation-message">
+   <h2>Slot Booked Successfully!</h2>
+   <p>Your session has been booked successfully. You have selected the time slot: <span id="selected-time"></span></p>
+
+   <a href="courses.html" class="btn">Back to Courses</a>
+</div>
+
+<script>
+   // Get the selected time from the URL and display it
+   const urlParams = new URLSearchParams(window.location.search);
+   const time = urlParams.get('time');
+   if (time) {
+      document.getElementById('selected-time').innerText = time;
+   }
+</script>
+
+</body>
+</html>

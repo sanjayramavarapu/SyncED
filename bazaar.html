@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>E-Bazaar</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header class="header">
+   
+   <section class="flex">
+
+      <a href="home.html" class="logo-container" style="text-decoration: none; display: inline-flex; align-items: center; transform: skew(-10deg);">
+         <span class="logo" style="font-size: 2.5rem; font-weight: bold; color: #2c3e50;">Sync</span>
+         <span class="highlight" style="font-size: 2.5rem; font-weight: bold; color: #8e44ad;">ED</span>
+       </a>
+
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="search offers..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="toggle-btn" class="fas fa-sun"></div>
+      </div>
+
+      <div class="profile">
+         <img src="images/pic-1.jpg" class="image" alt="">
+         <h3 class="name">sandeep</h3>
+         <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+         <div class="flex-btn">
+            <a href="login.html" class="option-btn">login</a>
+            <a href="register.html" class="option-btn">register</a>
+         </div>
+      </div>
+
+   </section>
+
+</header>   
+
+<div class="side-bar">
+
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Sandeep</h3>
+      <p class="role">student</p>
+      <a href="profile.html" class="btn">view profile</a>
+   </div>
+
+   <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="bazaar.html"><i class="fas fa-inr"></i><span>UniMarket</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      <a href="service.html"><i class="fas fa-user-plus"></i><span>Services</span></a>
+      <a href="tutor.html"><i class="fas fa-chalkboard-user"></i><span>Tutors</span></a>
+      <a href="faculty.html"><i class="fas fa-user-tie"></i><span>Faculty</span></a>
+      <a href="contact.html"><i class="fas fa-headset"></i><span>Contact us</span></a>
+   </nav>
+
+
+</div>
+
+<section class="courses"> 
+
+   <h1 class="heading">Welcome to E-Bazaar</h1>
+
+   <div class="box-container">
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3 style="text-align: center;">Become a Seller</h3>
+               <span>Join our team, transform lives through education, and grow with us!.</span>
+               <span> Need help? <a href="contact.html">Contact us</a></span>
+               <div style="margin-top: 10px;">
+                  <label for="product-condition">Product Condition:</label>
+                  <select id="product-condition" name="product-condition">
+                     <option value="books">--Select--</option>
+                     <option value="new">New</option>
+                     <option value="like-new">Like New</option>
+                     <option value="gently-used">Gently Used</option>
+                     <option value="excellent">Excellent</option>
+                     <option value="good">Good</option>
+                     <option value="very-good">Very Good</option>
+                     <option value="fair">Fair</option>
+                     <option value="other">Other</option>
+                  </select>
+               </div>
+               <div style="margin-top: 10px;">
+                  <label for="product-category">Product Category:</label>
+                  <select id="product-category" name="product-category">
+                     <option value="books">--Select--</option>
+                     <option value="books">Books</option>
+                     <option value="calculators">Calculators</option>
+                     <option value="gadgets">Gadgets</option>
+                     <option value="tools">Tools</option>
+                     <option value="stationery">Stationery</option>
+                     <option value="software">Software</option>
+                     <option value="equipment">Equipment</option>
+                     <option value="electronics">Electronics</option>
+                     <option value="clothing">Clothing</option>
+                     <option value="accessories">Accessories</option>                     
+                     <option value="other">Other</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/seller.png" alt="Gate PYQ'S (2014-2024)">
+         </div>
+         
+         <a href="register.html" class="inline-btn" target="_blank">Add New</a>
+      </div>
+
+         
+      
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Book By: Stack Overflow Contributors</h3>
+               <span>Virtual Material</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/sql.gif" alt="SQL material">
+         </div>
+         <h3 class="title">SQL learning material</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹0</span>
+            <span style="color: orange; font-size: 30px;">Free</span>
+         </p>
+         <a href="https://drive.google.com/file/d/1_suGFBXZcn31pWCragp6R4lJnMsL9jWA/view?usp=drive_link" class="inline-btn" target="_blank">Read Now</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Book By: HubSpot publications</h3>
+               <span>Virtual Material</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/email.gif" alt="email marketing">
+         </div>
+         <h3 class="title">An Introduction to E-mail marketing</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹0</span>
+            <span style="color: orange; font-size: 30px;">Free</span>
+         </p>
+         <a href="https://drive.google.com/file/d/1hvtuPPBTRp0x4ZN1LQK6Co5A4RiJKp3J/view?usp=sharing" class="inline-btn" target="_blank">Read Now</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Book Seller: Mahalakshmi</h3>
+               <span>Condition: New</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/gate.png" alt="Gate PYQ'S (2014-2024)">
+         </div>
+         <h3 class="title">Gate PYQ'S (2014-2024)</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹400</span>
+            <span style="color: orange; font-size: 30px;">₹320</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Book Seller: Anjali Mehta</h3>
+               <span>Condition: Gently Used</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/physics.png" alt="Engineering Physics Textbook">
+         </div>
+         <h3 class="title">Engineering Physics Textbook</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹400</span>
+            <span style="color: orange; font-size: 30px;">₹250</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Seller: Priya Kapoor</h3>
+               <span>Condition: Gently Used</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/geometry.png" alt="Classmate Geometry">
+         </div>
+         <h3 class="title">Classmate Geometry</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹250</span>
+            <span style="color: orange; font-size: 30px;">₹180</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Seller: Vikram</h3>
+               <span>Condition: Excellent</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/fileHolder.png" alt="Document Holder">
+         </div>
+         <h3 class="title">Document Holder</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹350</span>
+            <span style="color: orange; font-size: 30px;">₹200</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Seller: Rohan Sharma</h3>
+               <span>Condition: Used, Excellent</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/dell.png" alt="Dell Inspiron Laptop">
+         </div>
+         <h3 class="title">Dell Inspiron Laptop</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹40,000</span>
+            <span style="color: orange; font-size: 30px;">₹30,000</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Seller: Neha Singh</h3>
+               <span>Condition: Like New</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/casio.png" alt="Scientific Calculator (Casio FX-991EX)">
+         </div>
+         <h3 class="title">Casio FX-991EX</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹1,200</span>
+            <span style="color: orange; font-size: 30px;">₹800</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Seller: Nisha Verma</h3>
+               <span>Condition: New</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/drafter.png" alt="Classmate Draffter">
+         </div>
+         <h3 class="title">Classmate Drafter</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹250</span>
+            <span style="color: orange; font-size: 30px;">₹200</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+      
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Seller: Arjun Patel</h3>
+               <span>Condition: Gently Used</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/mech.png" alt="Mechanical Engineering Tool Kit">
+         </div>
+         <h3 class="title">Mechanical Engineering Tool Kit</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹3,000</span>
+            <span style="color: orange; font-size: 30px;">₹2,500</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+      <div class="box">
+         <div class="tutor">
+            <div class="info">
+               <h3>Seller: Sanya Kapoor</h3>
+               <span>Condition: Good</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="images/dld.png" alt="Digital Logic Design Lab Equipment">
+         </div>
+         <h3 class="title">Digital Logic Design Lab Equipment</h3>
+         <p style="display: flex; align-items: center; gap: 10px; margin: 0;">
+            <span style="text-decoration: line-through; font-size: 20px;">₹5,000</span>
+            <span style="color: orange; font-size: 30px;">₹4,700</span>
+         </p>
+         <a href="payment.html" class="inline-btn" target="_blank">Buy Now</a>
+      </div>
+
+      </div>
+      </section>
+
+
+
+
+
+
+
+<footer class="footer">
+      &copy; Copyright @ 2024 by <span>EcoMentors</span> | All Rights Reserved!
+   </footer>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+<script>
+   window.embeddedChatbotConfig = {
+       chatbotId: "Ug7e6NQ7UlyprFco_RhxV",
+       domain: "www.chatbase.co"
+   }
+</script>
+<script
+   src="https://www.chatbase.co/embed.min.js"
+   chatbotId="Ug7e6NQ7UlyprFco_RhxV"
+   domain="www.chatbase.co"
+   defer>
+</script>
+
+
+</body>
+</html>

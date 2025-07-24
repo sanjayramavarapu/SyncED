@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>SOS - Connect to Tutor</title>
+
+   <!-- Font Awesome CDN link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <style>
+      /* General Layout */
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f0f0f0;
+      }
+
+      /* Remove Header */
+      header {
+         display: none;
+      }
+
+      /* Container for the page */
+      .container {
+         max-width: 900px;
+         margin: 30px auto;
+         padding: 20px;
+         background-color: white;
+         border-radius: 8px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Profile section */
+      .profile {
+         text-align: center;
+         margin-bottom: 20px;
+      }
+
+      .profile img {
+         border-radius: 50%;
+         width: 100px;
+         height: 100px;
+      }
+
+      .profile h3 {
+         margin-top: 10px;
+         font-size: 1.5rem;
+         color: #333;
+      }
+
+      .profile p {
+         color: #777;
+         margin-bottom: 10px;
+      }
+
+      /* SOS Request Form */
+      .sos-form {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      select {
+         padding: 10px;
+         margin: 10px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         width: 80%;
+         font-size: 1rem;
+         background-color: #f9f9f9;
+      }
+
+      .sos-btn {
+         background-color: red;
+         color: white;
+         padding: 10px 20px;
+         text-decoration: none;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         margin-top: 20px;
+      }
+
+      .sos-btn:hover {
+         background-color: darkred;
+      }
+
+      /* Tutor Profile */
+      .tutor-profile {
+         display: none;
+         text-align: center;
+         margin-top: 30px;
+         padding: 20px;
+         background-color: #fff;
+         border-radius: 8px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .tutor-profile img {
+         border-radius: 50%;
+         width: 120px;
+         height: 120px;
+      }
+
+      .tutor-profile h3 {
+         margin-top: 10px;
+         font-size: 1.8rem;
+         color: #333;
+      }
+
+      .tutor-profile p {
+         font-size: 1rem;
+         color: #777;
+         margin-bottom: 10px;
+      }
+
+      .connect-btn {
+         background-color: #8e44ad;
+         color: white;
+         padding: 12px 20px;
+         text-decoration: none;
+         border-radius: 5px;
+         font-weight: bold;
+         margin-top: 20px;
+      }
+
+      .connect-btn:hover {
+         background-color: #6c3483;
+      }
+
+      /* Footer Styling */
+      .footer {
+         background-color: white;
+         color: #2c3e50;
+         text-align: center;
+         padding: 20px 0;
+         margin-top: 30px;
+         border-top: 1px solid #ccc;
+      }
+
+      .footer .logo-container {
+         display: inline-flex;
+         align-items: center;
+         transform: skew(-10deg);
+         text-decoration: none;
+      }
+
+      .footer .logo {
+         font-size: 2.5rem;
+         font-weight: bold;
+         color: #2c3e50;
+      }
+
+      .footer .highlight {
+         font-size: 2.5rem;
+         font-weight: bold;
+         color: #8e44ad;
+      }
+
+      .footer h2 {
+         margin: 10px 0;
+         font-size: 1.2rem;
+      }
+
+   </style>
+</head>
+<body>
+
+   <!-- SOS Page Content -->
+   <div class="container">
+      <div class="profile">
+         <img src="images/pic-1.jpg" alt="Profile Picture">
+         <h3>Sandeep</h3>
+         <p>Student</p>
+      </div>
+
+      <h2>Select Topic and Request SOS</h2>
+
+      <div class="sos-form">
+         <select id="topic">
+            <option value="" disabled selected>Select a topic...</option>
+            <option value="JQuery">JQuery</option>
+            <option value="SASS">SASS</option>
+            <option value="PHP">PHP</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JS">JavaScript</option>
+            <option value="Bootstrap">Bootstrap</option>
+            <option value="MySQL">MySQL</option>
+            <option value="React">React</option>
+         </select>
+
+         <button class="sos-btn" id="requestSOS">Request SOS</button>
+
+         <div class="loader" id="loader" style="display:none;">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Connecting to tutor...</p>
+         </div>
+      </div>
+
+      <!-- Tutor Profile Section (Initially hidden) -->
+      <div class="tutor-profile" id="tutorProfile">
+         <img src="images/pic-6.jpg" alt="Tutor Picture">
+         <h3>Utkarsh Malav</h3>
+         <p>Frontend Developer</p>
+         <a href="#" class="connect-btn">Connect</a>
+      </div>
+   </div>
+
+   <!-- Footer Section -->
+   <footer class="footer">
+      <a href="home.html" class="logo-container">
+         <span class="logo">Sync</span>
+         <span class="highlight">ED</span>
+      </a>
+      <h2>&copy; Copyright @ 2024 by <span>EcoMentors</span> | All Rights Reserved!</h2>
+   </footer>
+
+   <!-- Custom JS -->
+   <script>
+      document.getElementById('requestSOS').addEventListener('click', function() {
+         const topic = document.getElementById('topic').value;
+         const loader = document.getElementById('loader');
+         const tutorProfile = document.getElementById('tutorProfile');
+
+         if (topic) {
+            loader.style.display = 'block'; // Show loader
+            setTimeout(function() {
+               loader.style.display = 'none'; // Hide loader after 3 seconds
+               tutorProfile.style.display = 'block'; // Show tutor profile
+            }, 3000); // Simulate a delay of 3 seconds for connecting to a tutor
+         } else {
+            alert('Please select a topic first!');
+         }
+      });
+   </script>
+
+</body>
+</html>

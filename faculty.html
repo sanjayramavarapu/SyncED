@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Courses</title>
+
+   <!-- Font Awesome CDN link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Custom CSS file link -->
+   <link rel="stylesheet" href="css/style.css">
+
+   <style>
+      /* Custom styles for buttons and layout */
+      .btn-container {
+         display: flex;
+         gap: 1rem;
+         justify-content: center;
+         margin-top: 1rem;
+      }
+
+      .inline-btn {
+         display: inline-block;
+         padding: 1.2rem 1.2rem;
+         font-size: 1.2rem;
+         color: white;
+         background-color: #4b0082; /* Violet color */
+         border-radius: 5px;
+         text-align: center;
+         text-decoration: none;
+         transition: background-color 0.3s ease;
+      }
+
+      .inline-btn:hover {
+         background-color: #3a0069; /* Darker violet on hover */
+      }
+
+      .courses {
+         margin-top: 2rem;
+      }
+
+      .box-container {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+         gap: 1.5rem;
+         padding: 2rem;
+      }
+
+      .box {
+         border: 1px solid #ddd;
+         border-radius: 8px;
+         padding: 1rem;
+         text-align: center;
+         background-color: #fff;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         transition: transform 0.3s ease;
+      }
+
+      .box:hover {
+         transform: scale(1.05);
+      }
+
+      .tutor img {
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+      }
+
+      .title {
+         margin-top: 1rem;
+         font-size: 1.2rem;
+         font-weight: bold;
+      }
+
+      .thumb img {
+         width: 100%;
+         border-radius: 4px;
+         margin-top: 1rem;
+      }
+   </style>
+</head>
+<body>
+
+<header class="header">
+   
+   <section class="flex">
+
+      <a href="home.html" class="logo">SyncED</a>
+
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="Search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="toggle-btn" class="fas fa-sun"></div>
+      </div>
+
+      <div class="profile">
+         <img src="images/pic-1.jpg" class="image" alt="">
+         <h3 class="name">Sandeep</h3>
+         <p class="role">Student</p>
+         <a href="profile.html" class="btn">View Profile</a>
+         <div class="flex-btn">
+            <a href="login.html" class="option-btn">Login</a>
+            <a href="register.html" class="option-btn">Register</a>
+         </div>
+      </div>
+
+   </section>
+
+</header>
+
+<div class="side-bar">
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Sandeep</h3>
+      <p class="role">Student</p>
+      <a href="profile.html" class="btn">View Profile</a>
+   </div>
+
+   <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="bazaar.html"><i class="fas fa-inr"></i><span>UniMarket</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      <a href="service.html"><i class="fas fa-user-plus"></i><span>Services</span></a>
+      <a href="tutor.html"><i class="fas fa-chalkboard-user"></i><span>Tutors</span></a>
+      <a href="faculty.html"><i class="fas fa-user-tie"></i><span>Faculty</span></a>
+      <a href="contact.html"><i class="fas fa-headset"></i><span>Contact Us</span></a>
+   </nav>
+</div>
+
+<section class="courses">
+   <h1 class="heading">Our Courses</h1>
+   <div class="box-container">
+
+      <!-- Profile 1 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3>SRINADH RAJU</h3>
+               <span>RAGHU ENGINEERING COLLEGE</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvgXjqorJ31fzbLAtCigLcer-AMWf1_KtPuQ&s" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/sagiraju-srinadhraju-044b431b0/" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+      <!-- Profile 2 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3>TARUN MISHRA</h3>
+               <span>AITAM</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW_C4YBwm7jqF6jeZn0LSX2xGOpepnJBPI3Q&s" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/sai-tarun-mishra-7629311a9/" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+      <!-- Profile 3 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3> RAMA KRISHNA MURTHY</h3>
+               <span>GITAM</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsriUcrrpLREt5CqLA-iMSnmdK_AMbLvToeQ&s" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/ramakrishna-murty-m-3b995b5b/?originalSubdomain=in" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+      <!-- Profile 4 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3>DEEPTHI KAVILA </h3>
+               <span>ANITS</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Anits_logo.jpg/480px-Anits_logo.jpg" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/dr-selvani-deepthi-kavila-ba552977/" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+      <!-- Profile 5 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3>SARVA RAO</h3>
+               <span>MVGR</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTZyYDYByUDCh4wH03peU-VziuN_O1oibC-g&s" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/dr-sarva-rao-bandaru-15274652/?originalSubdomain=in" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+      <!-- Profile 6 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3>V PRASAD</h3>
+               <span>LENDI INSTITUTE OF TECHNOLOGY</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://lendi.org/GRCL/logo.png" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/dr-v-prasad-83546576/" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+      <!-- Profile 7 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3>MURALI KRISHNA </h3>
+               <span>GAYATRI VIDYA PARISHADH</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://www.gvpce.ac.in/gvp/images/logo.jpg" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/rvv-murali-krishna-31493a17/?originalSubdomain=in" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+      <!-- Profile 8 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3>MOHAN GANESH </h3>
+               <span>ANDHRA UNIVERSITY</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://www.andhrauniversity.edu.in/img/au-big-logo.png" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/pilla-mohan-ganesh-48692162/" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+      <!-- Profile 9 -->
+      <div class="box">
+         <div class="tutor">
+            <img src="https://cdn5.vectorstock.com/i/1000x1000/28/34/round-abstract-logo-for-college-vector-5172834.jpg" alt="">
+            <div class="info">
+               <h3>MAHESHWARA RAO</h3>
+               <span>VIGNAN'S INSTITUTE OF INFORMATION TECHNOLOGY</span>
+            </div>
+         </div>
+         <div class="thumb">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZALa4IToiK_ZMHgh0bSIbUc1hec5oYqiRmg&s" alt="">
+         </div>
+         <div class="btn-container">
+            <a href="https://www.linkedin.com/in/maheswara-rao-pydisetty-15637369/" class="inline-btn">View Faculty</a>
+         </div>
+      </div>
+
+   </div>
+</section>
+
+<footer class="footer">
+   &copy; Copyright @ 2024 by <span>EcoMentors</span> | All Rights Reserved!
+</footer>
+
+<!-- Custom JS file link -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

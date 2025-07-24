@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>video playlist</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header class="header">
+   
+   <section class="flex">
+
+      <a href="home.html" class="logo-container" style="text-decoration: none; display: inline-flex; align-items: center; transform: skew(-10deg);">
+         <span class="logo" style="font-size: 2.5rem; font-weight: bold; color: #2c3e50;">Sync</span>
+         <span class="highlight" style="font-size: 2.5rem; font-weight: bold; color: #8e44ad;">ED</span>
+       </a>
+      <form action="search.html" method="post" class="search-form">
+         <input type="text" name="search_box" required placeholder="search courses..." maxlength="100">
+         <button type="submit" class="fas fa-search"></button>
+      </form>
+
+      <div class="icons">
+         <div id="menu-btn" class="fas fa-bars"></div>
+         <div id="search-btn" class="fas fa-search"></div>
+         <div id="user-btn" class="fas fa-user"></div>
+         <div id="toggle-btn" class="fas fa-sun"></div>
+      </div>
+
+      <div class="profile">
+         <img src="images/pic-1.jpg" class="image" alt="">
+         <h3 class="name">sandeep</h3>
+         <p class="role">student</p>
+         <a href="profile.html" class="btn">view profile</a>
+         <div class="flex-btn">
+            <a href="login.html" class="option-btn">login</a>
+            <a href="register.html" class="option-btn">register</a>
+         </div>
+      </div>
+
+   </section>
+
+</header>   
+
+<div class="side-bar">
+
+   <div id="close-btn">
+      <i class="fas fa-times"></i>
+   </div>
+
+   <div class="profile">
+      <img src="images/pic-1.jpg" class="image" alt="">
+      <h3 class="name">Sandeep</h3>
+      <p class="role">student</p>
+      <a href="profile.html" class="btn">view profile</a>
+   </div>
+
+   <nav class="navbar">
+      <a href="home.html"><i class="fas fa-home"></i><span>Home</span></a>
+      <a href="bazaar.html"><i class="fas fa-inr"></i><span>UniMarket</span></a>
+      <a href="courses.html"><i class="fas fa-graduation-cap"></i><span>Courses</span></a>
+      <a href="service.html"><i class="fas fa-user-plus"></i><span>Services</span></a>
+      <a href="tutor.html"><i class="fas fa-chalkboard-user"></i><span>Tutors</span></a>
+      <a href="faculty.html"><i class="fas fa-user-tie"></i><span>Faculty</span></a>
+      <a href="contact.html"><i class="fas fa-headset"></i><span>Contact us</span></a>
+   </nav>
+
+</div>
+
+<section class="playlist-details">
+
+   <h1 class="heading">playlist details</h1>
+
+   <div class="row">
+
+      <div class="column">
+         <form action="" method="post" class="save-playlist">
+            <!-- <button type="submit"><i class="far fa-bookmark"></i> <span>save playlist</span></button> -->
+         </form>
+   
+         <div class="thumb">
+            <img src="images/thumb-5.png" alt="">
+         </div>
+      </div>
+      <div class="column">
+         <div class="tutor">
+            <img src="images/pic-6.jpg" alt="">
+            <div>
+                   <h3>Utkarsh Malav</h3>
+                   <span>Frontend Developer</span>
+            </div>
+         </div>
+   
+         <div class="details">
+            <h3>Complete JQuery tutorial</h3>
+            <p>Learn the <b>fundamentals of JQuery</b> with hands-on experience through <b>real-world projects</b> and interactive lessons. Create your own websites from scratch with our <b>comprehensive course</b>.</p>
+            <a href="playlist_videos1.html" class="inline-btn">View Playlist</a>
+            &nbsp;&nbsp;
+            <a href="https://www.linkedin.com/in/utkarsh-malav-6b2940265/" class="inline-btn">Request Service</a>
+         </div>
+         
+      </div>
+   </div>
+
+</section>
+
+
+
+
+
+<footer class="footer">
+   &copy; Copyright @ 2024 by <span>EcoMentors</span> | All Rights Reserved!
+</footer>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+
+
+<script>
+   window.embeddedChatbotConfig = {
+       chatbotId: "Ug7e6NQ7UlyprFco_RhxV",
+       domain: "www.chatbase.co"
+   }
+</script>
+<script
+   src="https://www.chatbase.co/embed.min.js"
+   chatbotId="Ug7e6NQ7UlyprFco_RhxV"
+   domain="www.chatbase.co"
+   defer>
+</script>
+
+
+
+</body>
+</html>

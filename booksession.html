@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Book a Session</title>
+
+   <!-- Font Awesome CDN Link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Custom CSS File Link -->
+   <link rel="stylesheet" href="css/style.css">
+
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f0f0f0;
+      }
+
+      .header {
+         background-color: #4b0082;
+         padding: 20px;
+         text-align: center;
+         color: white;
+         font-size: 24px;
+      }
+
+      .courses-container {
+         margin-top: 2rem;
+         display: flex;
+         flex-wrap: wrap;
+         gap: 2rem;
+         justify-content: center;
+         padding: 2rem;
+      }
+
+      .course-card {
+         background-color: white;
+         border-radius: 8px;
+         padding: 1.5rem;
+         width: 280px;
+         text-align: center;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         transition: transform 0.3s ease;
+         margin-bottom: 2rem;
+      }
+
+      .course-card:hover {
+         transform: scale(1.05);
+      }
+
+      .course-card img {
+         width: 100%;
+         border-radius: 8px;
+      }
+
+      .course-card h3 {
+         margin-top: 1rem;
+         font-size: 1.2rem;
+         font-weight: bold;
+      }
+
+      .course-card p {
+         margin-top: 0.5rem;
+         font-size: 1rem;
+         color: #666;
+      }
+
+      .btn-container {
+         display: flex;
+         justify-content: center;
+         margin-top: 1rem;
+      }
+
+      .btn {
+         display: inline-block;
+         padding: 1rem 2rem;
+         font-size: 1.1rem;
+         background-color: #6a0dad;
+         color: white;
+         border-radius: 8px;
+         text-decoration: none;
+         transition: background-color 0.3s ease, transform 0.3s ease;
+         min-width: 200px;
+         text-align: center;
+      }
+
+      .btn:hover {
+         background-color: #500a87;
+         transform: scale(1.05);
+      }
+
+      .footer {
+         background-color: #4b0082;
+         color: white;
+         text-align: center;
+         padding: 1rem;
+         position: fixed;
+         width: 100%;
+         bottom: 0;
+      }
+   </style>
+</head>
+<body>
+
+   <header class="header">
+      <h1>Book a Session</h1>
+      <p>Select a course and book a session with your tutor.</p>
+   </header>
+
+   <section class="courses-container">
+
+      <!-- Course 1 -->
+      <div class="course-card">
+         <img src="images/thumb-5.png" alt="JQuery Tutorial">
+         <h3>Complete JQuery Tutorial</h3>
+         <p>Learn JQuery from scratch with expert tutors. Master web development with hands-on training.</p>
+         <div class="btn-container">
+            <a href="book-session-jquery.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="course-card">
+         <img src="images/thumb-6.png" alt="SASS Tutorial">
+         <h3>Complete SASS Tutorial</h3>
+         <p>Master CSS pre-processing with SASS and enhance your web design skills.</p>
+         <div class="btn-container">
+            <a href="book-session-sass.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="course-card">
+         <img src="images/thumb-7.png" alt="PHP Tutorial">
+         <h3>Complete PHP Tutorial</h3>
+         <p>Become a backend developer by mastering PHP for web development.</p>
+         <div class="btn-container">
+            <a href="book-session-php.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="course-card">
+         <img src="images/thumb-1.png" alt="HTML Tutorial">
+         <h3>Complete HTML Tutorial</h3>
+         <p>Learn the fundamentals of web development with HTML, the backbone of all websites.</p>
+         <div class="btn-container">
+            <a href="book-session-html.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+      <!-- Course 5 -->
+      <div class="course-card">
+         <img src="images/thumb-2.png" alt="CSS Tutorial">
+         <h3>Complete CSS Tutorial</h3>
+         <p>Master CSS and create stunning web designs with advanced styling techniques.</p>
+         <div class="btn-container">
+            <a href="book-session-css.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+      <!-- Course 6 -->
+      <div class="course-card">
+         <img src="images/thumb-3.png" alt="JavaScript Tutorial">
+         <h3>Complete JavaScript Tutorial</h3>
+         <p>Learn JavaScript, the language that powers interactive web applications.</p>
+         <div class="btn-container">
+            <a href="book-session-javascript.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+      <!-- Course 7 -->
+      <div class="course-card">
+         <img src="images/thumb-4.png" alt="Bootstrap Tutorial">
+         <h3>Complete Bootstrap Tutorial</h3>
+         <p>Learn how to build responsive websites quickly with the Bootstrap framework.</p>
+         <div class="btn-container">
+            <a href="book-session-bootstrap.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+      <!-- Course 8 -->
+      <div class="course-card">
+         <img src="images/thumb-8.png" alt="MySQL Tutorial">
+         <h3>Complete MySQL Tutorial</h3>
+         <p>Master MySQL and learn to manage databases like a professional.</p>
+         <div class="btn-container">
+            <a href="book-session-mysql.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+      <!-- Course 9 -->
+      <div class="course-card">
+         <img src="images/thumb-9.png" alt="React Tutorial">
+         <h3>Complete React Tutorial</h3>
+         <p>Learn React and build interactive user interfaces for modern web applications.</p>
+         <div class="btn-container">
+            <a href="book-session-react.html" class="btn">Book a Session</a>
+         </div>
+      </div>
+
+   </section>
+
+   <footer class="footer">
+      &copy; Copyright @ 2024 by <span>EcoMentors</span> | All Rights Reserved!
+   </footer>
+
+</body>
+</html>

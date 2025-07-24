@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Scoring System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #visualizer {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin: 20px 0;
+            position: relative;
+        }
+        .bar {
+            position: absolute;
+            bottom: 0;
+            width: 2px;
+            background-color: #4CAF50;
+            display: inline-block;
+            margin: 0 1px;
+        }
+        #transcript {
+            width: 100%;
+            height: 100px;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .score-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .score-box {
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            min-width: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+        button:disabled {
+            background-color: #cccccc;
+        }
+        #grammarFeedback {
+            text-align: left;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grammar Scoring System</h1>
+    <p>Choose an input method to analyze speech grammar:</p>
+    
+    <div style="margin: 20px 0;">
+        <button id="startButton">Use Microphone</button>
+        <input type="file" id="audioUpload" accept="audio/*" style="display: none;">
+        <button onclick="document.getElementById('audioUpload').click()">Upload Audio File</button>
+    </div>
+    
+    <button id="stopButton" disabled>Stop</button>
+    <button id="analyzeButton" disabled>Analyze Grammar</button>
+    
+    <div id="visualizer"></div>
+    
+    <h3>Transcript:</h3>
+    <textarea id="transcript" readonly></textarea>
+    
+    <div class="score-container">
+        <div class="score-box">
+            <h4>Grammar Score</h4>
+            <div id="grammarScore">0/100</div>
+        </div>
+        <div class="score-box">
+            <h4>Vocabulary Score</h4>
+            <div id="vocabularyScore">0/100</div>
+        </div>
+        <div class="score-box">
+            <h4>Fluency Score</h4>
+            <div id="fluencyScore">0/100</div>
+        </div>
+    </div>
+    
+    <div id="grammarFeedback">
+        <h3>Grammar Feedback:</h3>
+        <ul id="feedbackList"></ul>
+    </div>
+    
+    <script>
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const analyzeButton = document.getElementById('analyzeButton');
+        const audioUpload = document.getElementById('audioUpload');
+        const visualizer = document.getElementById('visualizer');
+        const transcript = document.getElementById('transcript');
+        const grammarScore = document.getElementById('grammarScore');
+        const vocabularyScore = document.getElementById('vocabularyScore');
+        const fluencyScore = document.getElementById('fluencyScore');
+        const feedbackList = document.getElementById('feedbackList');
+        
+        let audioContext;
+        let analyser;
+        let microphone;
+        let isListening = false;
+        let animationId;
+        let recognition;
+        let finalTranscript = '';
+        
+        // Create frequency bars for visualization
+        const barCount = 64;
+        for (let i = 0; i < barCount; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'bar';
+            bar.style.left = `${i * (100 / barCount)}%`;
+            bar.style.height = '0px';
+            visualizer.appendChild(bar);
+        }
+        const bars = document.querySelectorAll('.bar');
+        
+        startButton.addEventListener('click', startListening);
+        stopButton.addEventListener('click', stopListening);
+        analyzeButton.addEventListener('click', analyzeGrammar);
+        audioUpload.addEventListener('change', handleFileUpload);
+        
+        function initializeSpeechRecognition() {
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            
+            recognition.onresult = (event) => {
+                let interimTranscript = '';
+                
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const transcript = event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        finalTranscript += transcript + ' ';
+                    } else {
+                        interimTranscript += transcript;
+                    }
+                }
+                
+                transcript.value = finalTranscript + interimTranscript;
+            };
+            
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error', event.error);
+            };
+        }
+        
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // Reset previous data
+            finalTranscript = '';
+            transcript.value = '';
+            feedbackList.innerHTML = '';
+            
+            const fileReader = new FileReader();
+            fileReader.onload = async function(e) {
+                try {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    analyser = audioContext.createAnalyser();
+                    analyser.fftSize = 256;
+                    
+                    const audioBuffer = await audioContext.decodeAudioData(e.target.result);
+                    const source = audioContext.createBufferSource();
+                    source.buffer = audioBuffer;
+                    source.connect(analyser);
+                    analyser.connect(audioContext.destination);
+                    source.start();
+                    
+                    isListening = true;
+                    startButton.disabled = true;
+                    stopButton.disabled = false;
+                    analyzeButton.disabled = true;
+                    
+                    // Initialize speech recognition
+                    initializeSpeechRecognition();
+                    recognition.start();
+                    
+                    visualize();
+                    
+                    // Auto-stop when audio ends
+                    source.onended = () => {
+                        stopListening();
+                    };
+                } catch (error) {
+                    console.error('Error processing audio file:', error);
+                    alert('Error processing audio file. Please try a different file.');
+                }
+            };
+            fileReader.readAsArrayBuffer(file);
+        }
+
+        async function startListening() {
+            try {
+                // Initialize audio context and analyzer
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 256;
+                
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                microphone = audioContext.createMediaStreamSource(stream);
+                microphone.connect(analyser);
+                
+                // Initialize speech recognition
+                initializeSpeechRecognition();
+                recognition.start();
+                
+                isListening = true;
+                startButton.disabled = true;
+                stopButton.disabled = false;
+                analyzeButton.disabled = true;
+                
+                // Reset previous data
+                finalTranscript = '';
+                transcript.value = '';
+                feedbackList.innerHTML = '';
+                
+                visualize();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error accessing microphone/speech recognition. Please ensure you have granted permission.');
+            }
+        }
+        
+        function stopListening() {
+            if (microphone && audioContext) {
+                microphone.disconnect();
+                cancelAnimationFrame(animationId);
+                audioContext.close();
+            }
+            
+            if (recognition) {
+                recognition.stop();
+            }
+            
+            isListening = false;
+            startButton.disabled = false;
+            stopButton.disabled = true;
+            analyzeButton.disabled = false;
+            
+            // Reset visualization
+            bars.forEach(bar => {
+                bar.style.height = '0px';
+            });
+        }
+        
+        function visualize() {
+            if (!isListening) return;
+            
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+            analyser.getByteFrequencyData(dataArray);
+            
+            for (let i = 0; i < barCount; i++) {
+                const value = dataArray[i] / 255;
+                const height = value * 200;
+                bars[i].style.height = `${height}px`;
+            }
+            
+            animationId = requestAnimationFrame(visualize);
+        }
+        
+        function analyzeGrammar() {
+            if (!finalTranscript.trim()) {
+                alert('No speech detected. Please try speaking again.');
+                return;
+            }
+            
+            // Simple grammar analysis (in a real app, you'd use a proper NLP library)
+            const text = finalTranscript.trim();
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            const words = text.split(/\s+/).filter(w => w.length > 0);
+            
+            // Calculate scores (simplified for demo)
+            const grammarErrors = findGrammarErrors(text);
+            const vocabScore = calculateVocabularyScore(words);
+            const fluencyScoreValue = calculateFluencyScore(sentences, words);
+            
+            const grammarScoreValue = 100 - (grammarErrors.length * 5);
+            
+            // Update UI
+            grammarScore.textContent = `${Math.max(0, grammarScoreValue)}/100`;
+            vocabularyScore.textContent = `${vocabScore}/100`;
+            fluencyScore.textContent = `${fluencyScoreValue}/100`;
+            
+            // Show feedback
+            feedbackList.innerHTML = '';
+            if (grammarErrors.length > 0) {
+                grammarErrors.forEach(error => {
+                    const li = document.createElement('li');
+                    li.textContent = error;
+                    feedbackList.appendChild(li);
+                });
+            } else {
+                const li = document.createElement('li');
+                li.textContent = 'Good job! No major grammar errors detected.';
+                feedbackList.appendChild(li);
+            }
+        }
+        
+        function findGrammarErrors(text) {
+            const errors = [];
+            const commonMistakes = [
+                { pattern: /\b(a|an)\s+[aeiouAEIOU]\w+/g, message: "Possible incorrect article usage before vowel sounds" },
+                { pattern: /\b(they|we|you|I)\s+is\b/g, message: "Subject-verb agreement error ('is' with plural subject)" },
+                { pattern: /\b(he|she|it)\s+(am|are)\b/g, message: "Subject-verb agreement error" },
+                { pattern: /\b(me)\s+(am|is|are)\b/g, message: "Incorrect pronoun case ('me' as subject)" },
+                { pattern: /\b(much)\s+\w+s\b/g, message: "'Much' used with countable nouns (should use 'many')" },
+                { pattern: /\b(many)\s+\w+[^s]\b/g, message: "'Many' used with uncountable nouns (should use 'much')" }
+            ];
+            
+            commonMistakes.forEach(mistake => {
+                if (text.match(mistake.pattern)) {
+                    errors.push(mistake.message);
+                }
+            });
+            
+            return errors;
+        }
+        
+        function calculateVocabularyScore(words) {
+            // Simple vocabulary diversity score
+            const uniqueWords = new Set(words.map(w => w.toLowerCase()));
+            const diversityRatio = uniqueWords.size / words.length;
+            return Math.min(100, Math.floor(diversityRatio * 150));
+        }
+        
+        function calculateFluencyScore(sentences, words) {
+            // Simple fluency score based on sentence length variation
+            if (sentences.length < 2) return 50;
+            
+            const avgWordsPerSentence = words.length / sentences.length;
+            let variance = 0;
+            
+            sentences.forEach(s => {
+                const sentenceWords = s.split(/\s+/).filter(w => w.length > 0);
+                variance += Math.pow(sentenceWords.length - avgWordsPerSentence, 2);
+            });
+            
+            variance = variance / sentences.length;
+            const stdDev = Math.sqrt(variance);
+            
+            // Lower stdDev (more consistent sentence lengths) = higher score
+            return Math.max(0, 100 - Math.floor(stdDev * 10));
+        }
+    </script>
+</body>
+</html>
