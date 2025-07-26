@@ -80,3 +80,7 @@ Welcome to **SyncED**, an innovative platform designed to foster a vibrant stude
 - **Custom Backend Logic**: Implementation of the peer-powered credit system. (Could be extended with blockchain for enhanced transparency/security in future iterations).
 
 # Screenshots 🖼️
+![3](Screenshot%202025-07-24%20094416.png)
+![1](Screenshot%202025-07-24%20094552.png)
+![2](Screenshot%202025-07-24%20094519.png)
+![4](Screenshot%202025-07-24%20094536.png)
