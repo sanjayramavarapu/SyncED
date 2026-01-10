@@ -12,9 +12,9 @@ Welcome to **SyncED**, an innovative platform designed to foster a vibrant stude
 
 # Features ✨
 
-- **Peer-to-Peer Transactions**: Buy and sell items (textbooks, electronics, furniture, etc.) directly with other students.
+- **Quiz-Based Learning**: Buy and sell items (textbooks, electronics, furniture, etc.) directly with other students.
 
-- **Knowledge Exchange Hub**: Share academic notes, study guides, tutorials, and offer tutoring services.
+- **Gamified Experience**: Share academic notes, study guides, tutorials, and offer tutoring services.
 
 - **Credit-Based Economy**: A secure, peer-powered credit system facilitates all transactions within the marketplace.
 
@@ -30,7 +30,7 @@ Welcome to **SyncED**, an innovative platform designed to foster a vibrant stude
 
 # Key Concepts 💡
 
-- **Credits**: The primary currency within the marketplace, earned by selling items or sharing knowledge, and spent on acquiring goods or services.
+- **Quizzes**: The primary currency within the marketplace, earned by selling items or sharing knowledge, and spent on acquiring goods or services.
 
 - **Listings**: Advertisements for items to sell, services to offer, or knowledge to share.
 
