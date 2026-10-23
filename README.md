@@ -6,7 +6,7 @@ Welcome to **SyncED**, an innovative platform designed to foster a vibrant stude
 | Name                | Role                       |
 |---------------------|---------------------------|
 | [<img src="https://github.com/sanjayramavarapu.png" width="30"> R Sanjay ](https://github.com/sanjayramavarapu)  |    Frontend Developer |
-| [K Hrudayesh Reddy] (https://github.com/hrudayesh43)| Backend Developer |
+| [<img src="https://github.com/hrudayesh43.png" width="30"> R Sanjay ](https://github.com/hrudayesh43)  |    Backend Developer |
 | [<img src="https://github.com/doondi30.png" width="30"> R Doondi Gangadhar](https://github.com/doondi30)       | UI/UX Designer |
 
 
